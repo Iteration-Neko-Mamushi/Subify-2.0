@@ -4,10 +4,11 @@ const db = require('../model/subifyModel');
 const usersController = {};
 
 usersController.createUser = (req, res, next) => {
-  const queryString = 'Insert into username(username, account_date, first_name, last_name, location, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+  const queryString = 'Insert into username(username, password, account_date, first_name, last_name, location, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
 
   const createUserDetails = [
     req.body.username,
+    req.body.password,
     req.body.account_date,
     req.body.first_name,
     req.body.last_name,
@@ -15,6 +16,7 @@ usersController.createUser = (req, res, next) => {
     req.body.email,
     req.body.phone_number
   ];
+
   db.query(queryString, createUserDetails, (err, result) =>{
     if(err) return next(err);
     res.locals.username = req.body.username;
