@@ -12,6 +12,7 @@ import CardContainer from './components/CardContainer.jsx';
 import Welcome from './components/Welcome.jsx';
 import Summary from './components/Summary.jsx';
 import Home from './Home.jsx';
+import style from './view/style.scss';
 
 class App extends Component {
   render() {

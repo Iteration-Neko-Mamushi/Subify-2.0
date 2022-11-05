@@ -2,3 +2,32 @@
     display: box;
     box-sizing: border-box;
 }
+
+#midContainer {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.addSubForm {
+  border: 1px solid green;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+#summary {
+  border: 1px solid purple
+}
+
+#welcome {
+  border: 1px solid orange
+}
+
+#cardContainer {
+  border: 1px solid blue;
+  display: flex;
+}
+
+#subCard {
+  border: 1px solid pink;
+}
