@@ -40,4 +40,24 @@ usersController.createUserSubscriptions = (req, res, next) => {
     });
 };
 
+usersController.updateUserSub = (req, res, next) => {
+  const username = req.body.username;
+  const body = [
+    req.body.subscriptionName,
+    req.body.subscriptionPrice,
+    req.body.dueDate
+  ];
+
+  const queryString = `INSERT INTO ${username}(subscription_name, subscription_price, due_date) VALUES($1, $2, $3)`;
+
+  db.query(queryString, body)
+    .then(result => {
+      res.locals.user = result.rows;
+      return next();
+    })
+    .catch(err => {
+      return next(err);
+    });
+};
+
 module.exports = usersController;

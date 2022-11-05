@@ -10,7 +10,10 @@ const router = express.Router();
 router.post('/', usersController.createUser, usersController.createUserSubscriptions, (req, res) =>{
   return res.status(200).send(res.locals.user);
 });
+
+router.patch('/', usersController.updateUserSub, (req, res) =>{
+  return res.sendStatus(200);
+});
+
 //Subscription Table
-
-
 module.exports = router;
