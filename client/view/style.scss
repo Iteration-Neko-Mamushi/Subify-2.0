@@ -31,3 +31,16 @@
 #subCard {
   border: 1px solid pink;
 }
+
+#login {
+  justify-content: center;
+  display:flex;
+}
+
+.loginForm {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  border: 1px solid green;
+
+}

@@ -1,26 +1,47 @@
-import React, { Component }from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-} from 'react-router-dom';
+import React from 'react';
+import { useState} from 'react';
+export default function Login() {
+  
+  const URL = 'http://localhost:8080/signin/';
+  
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-// import App from './App.jsx';
-// import Signup from './Signup.jsx';
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
+    setPassword('');
+    setUsername('');
+  };
 
-class Login extends Component {
-  render () {
-    return (
-      <div>
-        <form className='loginForm'>
-          <input type="text" id="usernameInput" placeholder="username" value={null} />
-          <input type="password" id="passwprdInput" placeholder="password" value={null}/>
-          <button type='submit' id='loginbutton'>Login</button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div id='login'>
+      <form className='loginForm' onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          id="usernameLogin" 
+          placeholder="username"
+          onChange={(e) => setUsername(e.target.value) } 
+          value={username} 
+        />
+        <input 
+          type="password" 
+          id="passwordLogin" 
+          placeholder="password" 
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <button id='loginButton'>Login</button>
+      </form>
+    </div>
+  );
 }
-
-export default Login;
