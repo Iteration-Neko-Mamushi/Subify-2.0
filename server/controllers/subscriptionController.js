@@ -9,7 +9,7 @@ subscriptionController.getInformation = (req, res, next) => {
   console.log('GET REQUEST:', paramVal);
   db.query(sqlQuery)
     .then(result => {
-      res.locals.information = result.rows[0];
+      res.locals.information = result.rows;
       return next();
     })
     .catch(err => {
