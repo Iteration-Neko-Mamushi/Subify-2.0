@@ -6,10 +6,12 @@ import CardContainer from './components/CardContainer.jsx';
 
 export default function Home() {
   return (
-    <div>
+    <div id='mainContainer'>
       <Welcome />
-      <AddSub />
-      <Summary />
+      <div id='midContainer'>
+        <AddSub />
+        <Summary />
+      </div>
       <CardContainer />
     </div>
   );

@@ -3,8 +3,7 @@ import SubCard from './SubCard.jsx';
 
 export default function CardContainer() {
   return (
-    <div>
-      <h1>Card Container</h1>
+    <div id='cardContainer'>
       <SubCard />
     </div>
   );

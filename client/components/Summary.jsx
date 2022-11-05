@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export default function Summary() {
   return (
-    <div>Summary</div>
-  )
+    <div id='summary'>Summary</div>
+  );
 }
