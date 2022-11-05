@@ -7,10 +7,18 @@ const router = express.Router();
 //Credentials Table
 
 //Users Table
-router.post('/', usersController.createUser, (req, res) =>{
+router.post('/', usersController.createUser, usersController.createUserSubscriptions, (req, res) =>{
+  return res.status(200).send(res.locals.user);
+});
+
+router.patch('/', usersController.updateUserSub, (req, res) =>{
   return res.sendStatus(200);
 });
+
+router.delete('/', usersController.deleteUserSub, (req, res) =>{
+  return res.sendStatus(200);
+});
+
+
 //Subscription Table
-
-
 module.exports = router;

@@ -20,13 +20,14 @@ app.use('/api/users', usersAPI);
 app.use('/api/subscriptions', subscriptionsAPI);
 
 // serving html file to member page
-//app.get('/<enter members route>', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/* <enter route to redirect> */.html')));
-//app.post('/<enter login route>', AuthController.verifyUser, AuthController.setCookie, (req, res) => res.redirect('/<enter members route>'));
+//app.get('/', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/')));
+//app.post('/signin'/* can change this later *Hasheem */, AuthController.verifyUser, AuthController.setCookie, (req, res) => res.redirect('/login'));
+
 
 
 //Base App handler
 app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+  return res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 });
 
 //Catch-all route handler
