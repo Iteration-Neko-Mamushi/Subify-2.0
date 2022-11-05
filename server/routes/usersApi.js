@@ -7,8 +7,8 @@ const router = express.Router();
 //Credentials Table
 
 //Users Table
-router.post('/', usersController.createUser, (req, res) =>{
-  return res.sendStatus(200);
+router.post('/', usersController.createUser, usersController.createUserSubscriptions, (req, res) =>{
+  return res.status(200).send(res.locals.user);
 });
 //Subscription Table
 
