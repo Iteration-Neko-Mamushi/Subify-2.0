@@ -24,6 +24,7 @@ app.use('/api/subscriptions', subscriptionsAPI);
 //app.post('/signin'/* can change this later *Hasheem */, AuthController.verifyUser, AuthController.setCookie, (req, res) => res.redirect('/login'));
 
 
+
 //Base App handler
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
