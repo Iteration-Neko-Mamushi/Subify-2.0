@@ -24,7 +24,7 @@ usersController.createUser = (req, res, next) => {
   const createUserDetails = [
     req.body.username,
     req.body.password,
-    req.body.account_date,
+    new Date(),
     req.body.first_name,
     req.body.last_name,
     req.body.location,
