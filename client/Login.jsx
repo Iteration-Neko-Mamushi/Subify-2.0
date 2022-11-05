@@ -6,13 +6,19 @@ import {
   Link,
 } from 'react-router-dom';
 
-import App from './App.jsx';
-import Signup from './Signup.jsx';
+// import App from './App.jsx';
+// import Signup from './Signup.jsx';
 
 class Login extends Component {
   render () {
     return (
-      <h1>Login</h1>
+      <div>
+        <form className='loginForm'>
+          <input type="text" id="usernameInput" placeholder="username" value={null} />
+          <input type="password" id="passwprdInput" placeholder="password" value={null}/>
+          <button type='submit' id='loginbutton'>Login</button>
+        </form>
+      </div>
     );
   }
 }
