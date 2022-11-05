@@ -2,14 +2,14 @@ const db = require('../model/subifyModel.js');
 
 const subscriptionController = {};
 
-subscriptionController.getCategory = (req, res, next) => {
-  const category = req.params.category;
-  const sqlQuery = `SELECT * FROM ${category}`;
+subscriptionController.getInformation = (req, res, next) => {
+  const paramVal = req.params.value;
+  const sqlQuery = `SELECT * FROM ${paramVal}`;
 
-  console.log('GET REQUEST:', category);
+  console.log('GET REQUEST:', paramVal);
   db.query(sqlQuery)
     .then(result => {
-      res.locals.category = result.rows[0];
+      res.locals.information = result.rows[0];
       return next();
     })
     .catch(err => {

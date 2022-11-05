@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Route Handlers
 app.use('/api/users', usersAPI);
-app.use('/api/subscription', subscriptionsAPI);
+app.use('/api/subscriptions', subscriptionsAPI);
 
 // serving html file to member page
 //app.get('/<enter members route>', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/* <enter route to redirect> */.html')));
