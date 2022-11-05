@@ -60,4 +60,19 @@ usersController.updateUserSub = (req, res, next) => {
     });
 };
 
+usersController.deleteUserSub = (req, res, next) => {
+  const {username, subscriptionName} = req.body;
+
+  const queryString = `DELETE FROM ${username} WHERE subscription_name = '${subscriptionName}';`;
+
+  db.query(queryString)
+    .then(result => {
+      res.locals.user = result.rows;
+      return next();
+    })
+    .catch(err => {
+      return next(err);
+    });
+};
+
 module.exports = usersController;
