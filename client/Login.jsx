@@ -2,7 +2,7 @@ import React from 'react';
 import { useState} from 'react';
 export default function Login() {
   
-  const URL = 'http://localhost:8080/signin/';
+  const URL = '/api/authenticate/';
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,9 +18,17 @@ export default function Login() {
         username,
         password,
       }),
-    });
-    setPassword('');
-    setUsername('');
+    })
+      .then(res => res.json())
+      .then(result => {
+        if(result.username)
+          console.log('LOGGED IN!');
+        else
+          console.log('INVALID CREDENTIALS');
+
+        setPassword('');
+        setUsername('');
+      });
   };
 
   return (
