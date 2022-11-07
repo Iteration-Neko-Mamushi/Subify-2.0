@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -36,18 +37,18 @@
 
 #login {
   justify-content: center;
-  display:flex;
+  display: flex;
 }
 
 .loginForm {
   display: grid;
   grid-template-columns: auto;
   justify-content: center;
-  border: 1px solid green;
+  padding-top: 1.0rem;
 
 }
 .base-container {
-  height: 100vh;
+  height: 200vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -59,16 +60,24 @@
   .content {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     align-items: center;
     justify-content: center ;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #7be495;
+    box-shadow: 5px 5px 10px #205072;
+    margin-top: 2.5rem;
+    transition: transform 1s;
+  }
+  .content:hover {
+    transform: rotateZ(0.5deg);
+    transition-duration: 1s;
   }
     .form {
-      margin-top: 2em;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px solid #cff4d2;
    
     }
       .form-group {
@@ -81,40 +90,38 @@
         label {
           display: block;
           font-size: 0.875rem;
-          margin-bottom: 0.5rem;
           text-transform: capitalize;
           letter-spacing: 1px;
+          color: #0A8085;
           
         }
         input {
-          margin-top: 6px;
+          margin-top: 0px;
           min-width: 18em;
           padding: 0px 10px;
           font-size: 16px;
           font-family: "Open Sans", sans-serif;
           border-radius: 4px;
-          margin-bottom: 31px;
           transition: all 250ms ease-in-out;
           letter-spacing: 1px;
           height: 35px;
-          margin-bottom: 0.5rem;
-          text-transform: capitalize;
+          margin-bottom: 1rem;
           border: 0
         }
-          &:focus {
-            outline: none;
-            box-shadow: 0px 0px 12px 0.8px #3474dbb2;
-          }
+        input:focus {
+          border: 3px solid #0A8085;
+          outline: none;
+        }
      
 
 
 
 
-#signupButton {
-  color: fff;
+.button {
+  color: white;
   width: 40%;
   height: 3em;
-  background-color: rgb(32, 177, 255);
+  background-color: #0A8085;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +129,9 @@
   border-radius: 0.25em;
   cursor: pointer;
   border: transparent;
-
+  justify-self: center;
 }
 
+.logoimage {
+  margin-top: 1.5rem;
+}
