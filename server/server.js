@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-//const AuthController = require('./controllers/authController.js');
 const cookieParser = require('cookie-parser');
 
 const app = express();
 
 const usersAPI = require('./routes/usersApi.js');
 const subscriptionsAPI = require('./routes/subscriptionsApi.js');
+const authenticationAPI = require('./routes/authenticationApi.js');
 
 const PORT = 3000;
 app.use(cookieParser());
@@ -18,15 +18,16 @@ app.use(express.urlencoded({ extended: true }));
 //Route Handlers
 app.use('/api/users', usersAPI);
 app.use('/api/subscriptions', subscriptionsAPI);
+app.use('/api/authenticate', authenticationAPI);
 
 // serving html file to member page
-//app.get('/<enter members route>', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/* <enter route to redirect> */.html')));
-//app.post('/<enter login route>', AuthController.verifyUser, AuthController.setCookie, (req, res) => res.redirect('/<enter members route>'));
+//app.get('/', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/')));
+
 
 
 //Base App handler
 app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+  return res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 });
 
 //Catch-all route handler

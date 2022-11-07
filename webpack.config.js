@@ -40,8 +40,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      '/api/users': 'http://localhost:3000',
-      '/api/subscriptions': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
     }
   }
 
