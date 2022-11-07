@@ -3,6 +3,7 @@ import AddSub from './components/AddSub.jsx';
 import Welcome from './components/Welcome.jsx';
 import Summary from './components/Summary.jsx';
 import CardContainer from './components/CardContainer.jsx';
+import SubCard from './components/SubCard.jsx';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Summary />
       </div>
       <CardContainer />
+      <SubCard.jsx />
     </div>
   );
 }
