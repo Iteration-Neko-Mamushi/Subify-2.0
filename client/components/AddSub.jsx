@@ -3,7 +3,8 @@ import { useState } from 'react';
 import SubCard from './SubCard.jsx';
 import CardContainer from './CardContainer.jsx';
 
-export default function AddSub() {
+export default function AddSub(props) {
+  const {display, setDisplay} = props; //Props from parent Home.jsx to manage display and when to refresh
 
   const [formData, setFormData] = useState({ // add username property
     subscription_name: '',
@@ -29,9 +30,7 @@ export default function AddSub() {
       body: JSON.stringify(body)
     })
       .then(res => {
-
         res.json();
-        console.log('json res:', res.json());
       })
 
       .then(data => {
@@ -42,6 +41,7 @@ export default function AddSub() {
         console.log('Error:', err);
       });
 
+    setDisplay([...display, 'Refresh']);
 
     setFormData( old => {
       return (
@@ -52,7 +52,6 @@ export default function AddSub() {
           due_date: 'PLACEHOLDER' // add later, leaving it as an empty string for now  
         });
     });
-
   };
 
   function handleChange(e) {

@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import DisplayBox from './displayBox.jsx';
 
-export default function SubCard() {
-  
-  const [display, setDisplay] = useState([]);
+export default function SubCard(props) {
+  const {display, setDisplay} = props; //Props from parent Home.jsx to manage display and when to refresh
 
-  useEffect(() => {
+  console.log('DISPLAY', display);
+
+  useEffect(() => { // using useEffect hook here to control freq of req
     fetch('/api/users')
       .then((response) => response.json())
       .then((data) => {
-        console.log('DATA:', data);
-        setDisplay(data.map((sub, i) => { // refactored to using map method 
+        console.log('use effect ran DATA:', data);
+        setDisplay(data.map((sub, i) => { // refactored to use map method 
           return(
             <DisplayBox
               key={`card${i}`}
@@ -21,9 +23,8 @@ export default function SubCard() {
             />);
         }));
       });
-  }, [display.length]);
-
-  console.log('display', display);
+  }, [display.length]);// included the length of display so we make a new req/ new render whenever state changes
+  // console.log('display', display);
   return (
     <div className='displayContainer'>
       {display}
