@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+body{
+  background-color: #cff4d2;
+}
+
+.all-cards{
+  display: flex;
+ 
+flex-direction: column;  
+justify-content: center;
+  align-items: center;
+}
+
+
+#midContainer {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.addSubForm {
+  border: 1px solid green;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+#summary {
+  border: 1px solid purple;
+  margin-top: 10px;
+}
+
+#welcome {
+  border: 1px solid orange
+}
+
+#cardContainer {
+  border: 1px solid blue;
+  display: flex;
+}
+
+#subCard {
+  border: 1px solid pink;
+}
+
+
+#login {
+  justify-content: center;
+  display: flex;
+}
+
+.loginForm {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  padding-top: 1.0rem;
+
+}
+
+.base-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cff4d2;
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #7be495;
+  box-shadow: 5px 5px 10px #205072;
+  margin-top: 2.5rem;
+  transition: transform 1s;
+}
+
+.content:hover {
+  transform: rotateZ(0.5deg);
+  transition-duration: 1s;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+}
+
+.displayContainer {
+  background-color: #cff4d2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: #0A8085;
+
+}
+
+input {
+  margin-top: 0px;
+  min-width: 18em;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+  letter-spacing: 1px;
+  height: 36px;
+  margin-bottom: 1rem;
+  border: 0
+}
+
+input:focus {
+  border: 3px solid #0A8085;
+  outline: none;
+}
+
+
+
+
+
+.button {
+  color: white;
+  width: 40%;
+  height: 3em;
+  background-color: #0A8085;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  border: transparent;
+  justify-self: center;
+}
+
+.logoimage {
+  margin-top: 1.5rem;
+}
+
+.addSubForm {
+  border: 1px solid #329d9c;
+  background-color: #205072;
+  color: white;
+  display: grid;
+  grid-template-columns: auto;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 20px;
+  input {
+    size: 70%;
+  }
+}
+
+::placeholder {
+  color: #329d9c;
+}
+
+#AddCardButton {
+  color: white;
+  max-width: 100%;
+  height: 3em;
+  background-color: #0A8085;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  border: transparent;
+  justify-self: center;
+  padding: 20px;
+
+
+  
+}
+
+#categoryselect {
+  margin-top: 0px;
+  min-width: 18em;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+  letter-spacing: 1px;
+  height: 36px;
+  margin-bottom: 1rem;
+  color: #329d9c;
+ 
+}
+
+.displayBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  width: 70%;
+  margin: 5px 5px 13px 10px;
+  float: left;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #205072;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  padding: 10px;
+  background: #7be495;
+
+  p {
+    padding: 5px;
+  }
+}
+
+.displayBox-summ {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+  line-height: 1.8em;
+  margin: 15px 5px 13px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  float: left;
+  font-size: 1em;
+  box-shadow: 5px 5px 10px #205072;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  background: #7be495;
+
+  p {
+    padding: 5px;
+  }
+}
+
+.displayBox:hover {
+  transform: scale(1.1, 1.1)
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#signup-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#signup-box > Link {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+#sign-butt{
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 520px) and (min-width: 375px) {
+  html {
+    font-size: 20px;
+  }
+}
