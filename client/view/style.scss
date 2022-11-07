@@ -12,7 +12,6 @@
 
 
 #midContainer {
-  border: 1px solid red;
   display: grid;
   grid-template-columns: auto auto;
 }
@@ -98,6 +97,10 @@
 
 }
 
+.displayContainer {
+  background-color: #7be495;
+}
+
 label {
   display: block;
   font-size: 0.875rem;
@@ -116,7 +119,7 @@ input {
   border-radius: 4px;
   transition: all 250ms ease-in-out;
   letter-spacing: 1px;
-  height: 35px;
+  height: 36px;
   margin-bottom: 1rem;
   border: 0
 }
@@ -190,4 +193,29 @@ input:focus {
 
 .displayBox:hover {
   transform: scale(1.1, 1.1)
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#signup-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#signup-box > Link {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+#sign-butt{
+  text-decoration: none;
+  color: white;
 }
