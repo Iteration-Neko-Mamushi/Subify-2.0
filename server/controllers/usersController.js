@@ -1,9 +1,9 @@
 const db = require('../model/subifyModel');
-const { use } = require('../server');
 
 
 const usersController = {};
 
+//Get and return all subscription info from the user's subscription database
 usersController.getUserSubInfo = (req, res, next) => {
   const username = req.cookies.token;
   const queryString = `SELECT * FROM ${username}`;
@@ -18,6 +18,7 @@ usersController.getUserSubInfo = (req, res, next) => {
     });
 };
 
+//Create a new user and add them to the username database
 usersController.createUser = (req, res, next) => {
   const queryString = 'Insert into username(username, password, account_date, first_name, last_name, location, email, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *';
 
@@ -40,6 +41,7 @@ usersController.createUser = (req, res, next) => {
 
 };
 
+//Create the table needed to manage their subscriptions
 usersController.createUserSubscriptions = (req, res, next) => {
   const queryString = `CREATE TABLE ${res.locals.username}(
     subscription_name text,
@@ -58,6 +60,7 @@ usersController.createUserSubscriptions = (req, res, next) => {
     });
 };
 
+//Add a new subscription to the signed in users account database
 usersController.updateUserSub = (req, res, next) => {
   const username = req.cookies.token;
   
@@ -80,8 +83,10 @@ usersController.updateUserSub = (req, res, next) => {
     });
 };
 
+//Delete a subscription from the signed in users account database (not used by frontend at this time)
 usersController.deleteUserSub = (req, res, next) => {
-  const {username, subscriptionName} = req.body;
+  const username = req.cookies.token;
+  const {subscriptionName} = req.body;
 
   const queryString = `DELETE FROM ${username} WHERE subscription_name = '${subscriptionName}';`;
 
