@@ -15,14 +15,18 @@ export default function Home() {
 
   return (
     <div id='mainContainer'>
-      <Welcome />
-      <div id='midContainer'>
+        <Welcome />
+        <div id='midContainer'>
         <AddSub display={display} setDisplay={setDisplay} />
-        <SummaryCard summaryData={summaryData}/>
-        {/* <Summary display={display} setDisplay={setDisplay} /> */}
-      </div>
-      {/* <CardContainer /> Why was this needed? unsure about purpose*/}
-      <SubCard display={display} setDisplay={setDisplay} summaryData={summaryData} setSummaryData={setSummaryData}/>
+
+        <div className="all-cards">
+          <SummaryCard summaryData={summaryData}/>
+          {/* <Summary display={display} setDisplay={setDisplay} /> */}
+          
+          {/* <CardContainer /> Why was this needed? unsure about purpose*/}
+        <SubCard display={display} setDisplay={setDisplay} summaryData={summaryData} setSummaryData={setSummaryData}/>
+        </div>
+        </div>
     </div>
   );
 }
