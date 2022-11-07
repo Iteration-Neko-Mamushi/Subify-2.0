@@ -7,17 +7,17 @@ export default function SummaryCard(props) {
     console.log("Card props", props.summaryData)
 
     return (
-            <div>
+            <div className="displayBox-summ">
                 <h2>Expense Summary</h2>
                 <div id="numberofservices">
-                Number of Services:{props.summaryData.subscriptionCount
+                <strong>Number of Services:</strong> {props.summaryData.subscriptionCount
 }
                 </div>
                 <div id='totalmonthlycost'>
-                Total Monthly Cost:{props.summaryData.totalMonthlyPrice}
+                <strong>Total Monthly Cost:</strong> {props.summaryData.totalMonthlyPrice}
                 </div>
                 <div id='totalyearlycost'>
-                Total Yearly Cost:{(props.summaryData.totalMonthlyPrice * 12).toFixed(2)}
+                <strong>Total Yearly Cost:</strong> {(props.summaryData.totalMonthlyPrice * 12).toFixed(2)}
                 </div>
             </div>
     )
