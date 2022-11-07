@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -47,7 +48,7 @@
 
 }
 .base-container {
-  height: 100%;
+  height: 200vh;
   width: 100%;
   display: flex;
   flex-direction: column;
