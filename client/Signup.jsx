@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import logo from './assets/Subify_Logo.png';
 export default function Signup() {
@@ -12,6 +13,8 @@ export default function Signup() {
   const [location, setLocation] = useState('');
   const [email, setEmail] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +41,8 @@ export default function Signup() {
       setLocation('');
       setEmail('');
     }
+
+    navigate('/login');
   };
 
   return (
