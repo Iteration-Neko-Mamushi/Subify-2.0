@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Routes> 
+        <Routes>
           <Route exact path='/' caseSensitive={false} element={<Home />} />
           <Route path='/signup' caseSensitive={false} element={<Signup />} />
           <Route path='/login' caseSensitive={false} element={<Login />} />
