@@ -18,4 +18,5 @@ subscriptionController.getInformation = (req, res, next) => {
   return next;
 };
 
+/*  */
 module.exports = subscriptionController;

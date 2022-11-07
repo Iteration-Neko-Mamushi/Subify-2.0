@@ -27,10 +27,12 @@ AuthController.verifyUser = (req, res, next) => {
 };
 
 
-// AuthController.setCookie = (req, res, next) => {
-//     res.cookie('token', /* '<user || admin>' */);
-//     return next();
-// };
+AuthController.setCookie = (req, res, next) => {
+  if(res.locals.username.username) {
+    res.cookie('token', res.locals.username.username);
+  }
+  return next();
+};
 
 
 // AuthController.verifyCookie = (req, res, next) => {
