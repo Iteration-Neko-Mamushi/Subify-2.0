@@ -2,13 +2,18 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
+//Initalize express
 const app = express();
 
+//Require Routes
 const usersAPI = require('./routes/usersApi.js');
 const subscriptionsAPI = require('./routes/subscriptionsApi.js');
 const authenticationAPI = require('./routes/authenticationApi.js');
 
+//Setup port
 const PORT = 3000;
+
+//Parse cookies
 app.use(cookieParser());
 
 //Handle parsing the request bodies
