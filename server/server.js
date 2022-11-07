@@ -20,11 +20,6 @@ app.use('/api/users', usersAPI);
 app.use('/api/subscriptions', subscriptionsAPI);
 app.use('/api/authenticate', authenticationAPI);
 
-// serving html file to member page
-//app.get('/', AuthController.verifyCookie, (req, res) => res.sendFile(path.resolve(__dirname, '/')));
-
-
-
 //Base App handler
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
