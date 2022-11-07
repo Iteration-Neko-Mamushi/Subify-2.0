@@ -6,7 +6,6 @@ import CardContainer from './CardContainer.jsx';
 export default function AddSub() {
 
   const [formData, setFormData] = useState({ // add username property
-    //username: '',
     subscription_name: '',
     monthly_price: '',
     category: 'other', //give default value
@@ -14,21 +13,6 @@ export default function AddSub() {
   });
 
   const handleSubmit = (e) => {
-    // console.log('COOKIES', document.cookie);
-    // //token=kelvin
-
-    // setFormData(old => {
-    //   return (
-    //     {
-    //       ...old,
-    //       username: document.cookie.username,
-    //     }
-    //   );
-    // });
-
-
-
-
     e.preventDefault();
     //save the data and send the information to the backend 
     //we will need a put request to add this to the category? 
@@ -57,6 +41,18 @@ export default function AddSub() {
       .catch((err) => {
         console.log('Error:', err);
       });
+
+
+    setFormData( old => {
+      return (
+        { // add username property
+          subscription_name: '',
+          monthly_price: '',
+          category: 'other', //give default value
+          due_date: 'PLACEHOLDER' // add later, leaving it as an empty string for now  
+        });
+    });
+
   };
 
   function handleChange(e) {
@@ -82,7 +78,7 @@ export default function AddSub() {
           id="serviceNameInput"
           placeholder="Service Name"
           onChange={handleChange}
-          //Remove value
+          value={formData.subscription_name} // not absolutely necessary, will work without, but just best practice, reason: allows React to remain in control of state
           name="subscription_name" //Added formData. in front of subscription_name
         />
         <span>Service Price</span>
@@ -92,7 +88,7 @@ export default function AddSub() {
           id="servicePriceInput"
           placeholder="Monthly Price"
           onChange={handleChange}
-          //remove value
+          value={formData.monthly_price}
           name="monthly_price"
         />
         <span>Category</span>

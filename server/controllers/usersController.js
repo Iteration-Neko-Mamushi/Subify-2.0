@@ -5,7 +5,7 @@ const { use } = require('../server');
 const usersController = {};
 
 usersController.getUserSubInfo = (req, res, next) => {
-  const {username} = req.body;
+  const username = req.cookies.token;
   const queryString = `SELECT * FROM ${username}`;
 
   db.query(queryString)
@@ -44,7 +44,8 @@ usersController.createUserSubscriptions = (req, res, next) => {
   const queryString = `CREATE TABLE ${res.locals.username}(
     subscription_name text,
     subscription_price text,
-    due_date text
+    due_date text,
+    category text
   );`;
 
   db.query(queryString)
@@ -63,11 +64,11 @@ usersController.updateUserSub = (req, res, next) => {
   const body = [
     req.body.subscription_name,
     req.body.monthly_price,
-    req.body.due_date
+    req.body.due_date,
+    req.body.category
   ];
 
-  console.log(username);
-  const queryString = `INSERT INTO ${username}(subscription_name, subscription_price, due_date) VALUES($1, $2, $3);`;
+  const queryString = `INSERT INTO ${username}(subscription_name, subscription_price, due_date, category) VALUES($1, $2, $3, $4);`;
 
   db.query(queryString, body)
     .then(result => {
