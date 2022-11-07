@@ -14,7 +14,7 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
     
-
+  const navigate = useNavigate();
 
  
 
