@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+
 import logo from './assets/Subify_Logo.png';
 export default function Signup() {
-
-
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,19 +12,11 @@ export default function Signup() {
   const [location, setLocation] = useState('');
   const [email, setEmail] = useState('');
   const [phone_number, setPhoneNumber] = useState('');
-    
-  const navigate = useNavigate();
 
- 
-
-
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // const users = {username, account_date, first_name, last_name, location, email, phonenumber}
     // const acctDate = new Date().toLocaleString();
-
-    
-
     const users = {username, password, account_date, first_name, last_name, location, email, phone_number};
 
     const response = await fetch('/api/users', {
@@ -35,11 +26,9 @@ export default function Signup() {
         'Content-Type': 'application/json'
       }
     });
-
     const data = await response.json();
     console.log(data);
     console.log('res data:', data);
-
     if (response.ok){
       setUsername('');
       setPassword('');
@@ -49,7 +38,6 @@ export default function Signup() {
       setLocation('');
       setEmail('');
     }
-
   };
 
   return (
