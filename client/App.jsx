@@ -13,12 +13,13 @@ import Welcome from './components/Welcome.jsx';
 import Summary from './components/Summary.jsx';
 import Home from './Home.jsx';
 import style from './view/style.scss';
+import main from './view/main.scss';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Routes> 
+        <Routes>
           <Route exact path='/' caseSensitive={false} element={<Home />} />
           <Route path='/signup' caseSensitive={false} element={<Signup />} />
           <Route path='/login' caseSensitive={false} element={<Login />} />
