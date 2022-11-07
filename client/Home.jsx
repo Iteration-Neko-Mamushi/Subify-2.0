@@ -14,7 +14,7 @@ export default function Home() {
         <Summary />
       </div>
       <CardContainer />
-      <SubCard.jsx />
+      <SubCard />
     </div>
   );
 }
