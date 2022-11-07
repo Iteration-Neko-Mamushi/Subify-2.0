@@ -6,8 +6,8 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  font-family: 'Lora', serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -17,21 +17,27 @@
   grid-template-columns: auto auto;
 }
 
+.addSubForm {
+  border: 1px solid green;
+  display: grid;
+  grid-template-columns: auto;
+}
+
 #summary {
-  border: 1px solid black;
+  border: 1px solid purple
 }
 
 #welcome {
-  border: 1px solid black;
+  border: 1px solid orange
 }
 
 #cardContainer {
-  border: 1px solid black;
+  border: 1px solid blue;
   display: flex;
 }
 
 #subCard {
-  border: 1px solid black;
+  border: 1px solid pink;
 }
 
 
@@ -44,11 +50,12 @@
   display: grid;
   grid-template-columns: auto;
   justify-content: center;
-  border: 1px solid black
+  padding-top: 1.0rem;
+
 }
 
 .base-container {
-  height: 100%;
+  height: 200vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -60,17 +67,26 @@
 .content {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #7be495;
+  box-shadow: 5px 5px 10px #205072;
+  margin-top: 2.5rem;
+  transition: transform 1s;
+}
+
+.content:hover {
+  transform: rotateZ(0.5deg);
+  transition-duration: 1s;
 }
 
 .form {
-  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #cff4d2;
 
 }
 
@@ -85,40 +101,40 @@
 label {
   display: block;
   font-size: 0.875rem;
-  margin-bottom: 0.5rem;
   text-transform: capitalize;
   letter-spacing: 1px;
+  color: #0A8085;
 
 }
 
 input {
-  margin-top: 6px;
+  margin-top: 0px;
   min-width: 18em;
   padding: 0px 10px;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   border-radius: 4px;
-  margin-bottom: 31px;
   transition: all 250ms ease-in-out;
   letter-spacing: 1px;
   height: 35px;
-  margin-bottom: 0.5rem;
-  text-transform: capitalize;
+  margin-bottom: 1rem;
   border: 0
 }
 
-&:focus {
+input:focus {
+  border: 3px solid #0A8085;
   outline: none;
-  box-shadow: 0px 0px 12px 0.8px #3474dbb2;
 }
 
 
 
-#signupButton {
-  color: fff;
+
+
+.button {
+  color: white;
   width: 40%;
   height: 3em;
-  background-color: rgb(32, 177, 255);
+  background-color: #0A8085;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,5 +142,52 @@ input {
   border-radius: 0.25em;
   cursor: pointer;
   border: transparent;
+  justify-self: center;
+}
 
+.logoimage {
+  margin-top: 1.5rem;
+}
+
+.addSubForm {
+  border: 1px solid #329d9c;
+  background-color: #329d9c;
+  color: white;
+  display: grid;
+  grid-template-columns: auto;
+  border: 1px solid black;
+}
+
+::placeholder {
+  color: #329d9c;
+}
+
+#AddCardButton {
+  background-color: #205072;
+  color: white;
+  cursor: pointer;
+}
+
+#categoryselect {
+  color: #329d9c;
+}
+
+.displayBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 5px;
+  width: 30%;
+  margin: 5px 5px 13px 10px;
+  float: left;
+  font-size: 1em;
+  box-shadow: 5px 5px 15px #329d9c;
+  cursor: pointer;
+
+  p {
+    padding: 5px;
+  }
+}
+
+.displayBox:hover {
+  transform: scale(1.1, 1.1)
 }
