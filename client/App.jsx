@@ -19,9 +19,13 @@ class App extends Component {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' caseSensitive={false} element={<Home />} />
+          <Route exact path='/' caseSensitive={false} element={<Login />} />
           <Route path='/signup' caseSensitive={false} element={<Signup />} />
-          <Route path='/login' caseSensitive={false} element={<Login />} />
+          <Route path='/home' caseSensitive={false} element={<Home />} />
+
+          {/* <Route exact path='/' caseSensitive={false} element={<Home />} />
+          <Route path='/signup' caseSensitive={false} element={<Signup />} />
+          <Route path='/login' caseSensitive={false} element={<Login />} /> */}
         </Routes>
       </Router >
     );

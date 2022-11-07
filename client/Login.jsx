@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import logo from './assets/Subify_Logo.png';
 
 export default function Login() {
@@ -9,7 +9,7 @@ export default function Login() {
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate('/');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,8 +29,9 @@ export default function Login() {
       .then(result => {
         if(result.username){
           console.log('LOGGED IN!');
-          navigate('/');
+          navigate('/home');
         }
+
         else
           console.log('INVALID CREDENTIALS');
 
@@ -40,32 +41,36 @@ export default function Login() {
   };
 
   return (
-    <div className='base-container'>
-      <div id='signinlogo'>
-        <img src={ logo } alt="" className='logoimage'/>
-      </div>
-      <div className='content'>
-        <div className='formGroup'>
-          <label>Login to Subify</label>
-          <form className='loginForm' onSubmit={handleSubmit}>
-            <input 
-              type="text"
-              id="usernameLogin" 
-              placeholder="username"
-              onChange={(e) => setUsername(e.target.value) } 
-              value={username} 
-            />
-            <input 
-              type="password" 
-              id="passwordLogin" 
-              placeholder="password" 
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            <button className='button'>Login</button>
-          </form>
-        </div>
-      </div>
+  <div className='base-container'>
+    <div id='signinlogo'>
+      <img src={ logo } alt="" className='logoimage'/>
     </div>
+    < div className='content'>
+      <div className='formGroup'>
+        <label>Login to Subify</label>
+      <form className='loginForm' onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          id="usernameLogin" 
+          placeholder="username"
+          onChange={(e) => setUsername(e.target.value) } 
+          value={username} 
+        />
+        <input 
+          type="password" 
+          id="passwordLogin" 
+          placeholder="password" 
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <div className="button-container">
+          <button className='button'>Login</button>
+          <button class='button' onClick={() => navigate('/signup')}>Signup</button>
+         
+        </div>
+      </form>
+      </div>
+      </div> 
+    </div> 
   );
 }

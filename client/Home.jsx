@@ -13,12 +13,6 @@ export default function Home() {
     totalMonthlyPrice: 0
   })
 
-  // return (
-  //   <div id='mainContainer'>
-  //     <SubCard display={display} setDisplay={setDisplay}/>
-  //   </div>
-  // );
-
   return (
     <div id='mainContainer'>
       <Welcome />
