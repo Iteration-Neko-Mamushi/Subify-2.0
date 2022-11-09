@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function displayBox(props) {
+export default function SubscriptionCard(props) {
 
-  const { subscription_name, category, monthly_price } = props; // destructuring the props object so we can just use the prop names to render
-  // changed attribute names to match exactly with what we have state set with, and how we have it labeled in the backend
+  // Destructuring variables for this particular subscription card from props
+  const { subscription_name, category, monthly_price } = props;
+
   return (
     <div className="displayBox">
       <p className="ServiceDetail"> <strong>ServiceName:</strong> {subscription_name}</p> 

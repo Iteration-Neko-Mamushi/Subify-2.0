@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import logo from './assets/Subify_Logo.png';
 export default function Signup() {
 
+  const [formData, setFormData] = useState({});
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [account_date, setAccount_date] = useState('');
@@ -18,8 +20,6 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const users = {username, account_date, first_name, last_name, location, email, phonenumber}
-    // const acctDate = new Date().toLocaleString();
     const users = {username, password, account_date, first_name, last_name, location, email, phone_number};
 
     const response = await fetch('/api/users', {
@@ -51,15 +51,14 @@ export default function Signup() {
         <img src={ logo } alt="" className='logoimage'/>
       </div>
       <div className='content'>
-        {/* <img src={logo} alt='logo' className='logo' /> */}
         <form className='form' onSubmit={handleSubmit}>
-          {/* <div className="header">Shopify</div> */}
           <div className='form-group'>
             <label htmlFor='username'>Username</label>
             <input 
               type="text"
               onChange={(e) => setUsername(e.target.value) } 
               value={username} 
+              //name=""
             /> 
           </div>
           <div className='form-group'>

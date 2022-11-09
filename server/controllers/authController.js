@@ -2,7 +2,7 @@ const db = require('../model/subifyModel');
 
 const AuthController = {};
 
-//Controller function which serves to verify the user
+// Controller function which serves to verify the user
 AuthController.verifyUser = (req, res, next) => {
 
   const { username, password } = req.body;

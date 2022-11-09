@@ -41,35 +41,34 @@ export default function Login() {
   };
 
   return (
-  <div className='base-container'>
-    <div id='signinlogo'>
-      <img src={ logo } alt="" className='logoimage'/>
-    </div>
-    < div className='content'>
-      <div className='formGroup'>
-        <label>Login to Subify</label>
-      <form className='loginForm' onSubmit={handleSubmit}>
-        <input 
-          type="text"
-          id="usernameLogin" 
-          placeholder="username"
-          onChange={(e) => setUsername(e.target.value) } 
-          value={username} 
-        />
-        <input 
-          type="password" 
-          id="passwordLogin" 
-          placeholder="password" 
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <div className="button-container">
-          <button className='button'>Login</button>
-          <button class='button' onClick={() => navigate('/signup')}>Signup</button>
-         
-        </div>
-      </form>
+    <div className='base-container'>
+      <div id='signinlogo'>
+        <img src={ logo } alt="" className='logoimage'/>
       </div>
+      <div className='content'>
+        <div className='formGroup'>
+          <label>Login to Subify</label>
+          <form className='loginForm' onSubmit={handleSubmit}>
+            <input 
+              type="text"
+              id="usernameLogin" 
+              placeholder="username"
+              onChange={(e) => setUsername(e.target.value)} 
+              value={username} 
+            />
+            <input 
+              type="password" 
+              id="passwordLogin" 
+              placeholder="password" 
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+            <div className="button-container">
+              <button className='button'>Login</button>
+              <button className='button' onClick={() => navigate('/signup')}>Signup</button>
+            </div>
+          </form>
+        </div>
       </div> 
     </div> 
   );

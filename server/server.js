@@ -2,40 +2,40 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
-//Initalize express
+// Initalize express
 const app = express();
 
-//Require Routes
+// Require Routes
 const usersAPI = require('./routes/usersApi.js');
 const subscriptionsAPI = require('./routes/subscriptionsApi.js');
 const authenticationAPI = require('./routes/authenticationApi.js');
 
-//Setup port
+// Setup port
 const PORT = 3000;
 
-//Parse cookies
+// Parse cookies
 app.use(cookieParser());
 
-//Handle parsing the request bodies
+// Handle parsing the request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Route Handlers
+// Route Handlers
 app.use('/api/users', usersAPI);
 app.use('/api/subscriptions', subscriptionsAPI);
 app.use('/api/authenticate', authenticationAPI);
 
-//Base App handler
+// Base App handler
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 });
 
-//Catch-all route handler
+// Catch-all route handler
 app.use('*', (req, res) => {
   res.sendStatus(404);
 });
 
-//Start server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
