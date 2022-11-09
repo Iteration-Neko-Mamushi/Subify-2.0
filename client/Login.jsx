@@ -7,9 +7,27 @@ export default function Login() {
   
   const URL = '/api/authenticate/';
   
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [loginData, setLoginData] = useState({
+    username: '',
+    password: ''
+  });
+
   const navigate = useNavigate('/');
+
+  function handleChange(e) {
+    const { name, value} = e.target;
+
+    setLoginData(old => {
+      return (
+        {
+          ...old,
+          [name]: value
+        }
+      );
+    });
+
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,24 +38,26 @@ export default function Login() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
+      body: JSON.stringify(loginData),
     })
       .then(res => res.json())
       .then(result => {
         if(result.username){
+
           console.log('LOGGED IN!');
+
+          setLoginData({
+            username: '',
+            password: ''
+          });
+
           navigate('/home');
         }
 
         else
           console.log('INVALID CREDENTIALS');
-
-        setPassword('');
-        setUsername('');
       });
+      
   };
 
   return (
@@ -47,21 +67,23 @@ export default function Login() {
       </div>
       <div className='content'>
         <div className='formGroup'>
-          <label>Login to Subify</label>
+          <label id='login-text'>Login to Subify</label>
           <form className='loginForm' onSubmit={handleSubmit}>
             <input 
               type="text"
               id="usernameLogin" 
               placeholder="username"
-              onChange={(e) => setUsername(e.target.value)} 
-              value={username} 
+              onChange={handleChange} 
+              value={loginData.username} 
+              name='username'
             />
             <input 
               type="password" 
               id="passwordLogin" 
               placeholder="password" 
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={handleChange}
+              value={loginData.password}
+              name='password'
             />
             <div className="button-container">
               <button className='button'>Login</button>
