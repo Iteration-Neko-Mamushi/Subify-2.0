@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/Subify_Logo.png';
+import profilepic from '../assets/profile-pic.jpg';
+import { Navigate } from 'react-router-dom';
 
 
 export default function Welcome() {
@@ -14,10 +16,13 @@ export default function Welcome() {
   return (
     <div id='topcontainer'>
       <div id='logocontainer'>
-        <img src={ logo } alt="" />
+        <img id='home-logo' src={ logo } alt="" />
       </div>
-      <div id='welcomemessage'>
-        <h3>Hello, {currentUser} </h3>
+      <div id='welcome-container'>
+        <div id='welcome-message'>
+
+        </div>
+        <img id='profile-pic' src={ profilepic }/>
       </div>
     </div>
   );

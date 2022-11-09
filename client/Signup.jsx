@@ -5,26 +5,44 @@ import { useNavigate } from 'react-router-dom';
 import logo from './assets/Subify_Logo.png';
 export default function Signup() {
 
-  const [formData, setFormData] = useState({});
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [account_date, setAccount_date] = useState('');
-  const [first_name, setFirstname] = useState('');
-  const [last_name, setLastname] = useState('');
-  const [location, setLocation] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone_number, setPhoneNumber] = useState('');
+  const [formData, setFormData] = useState(
+    {
+      username: '', 
+      password: '', 
+      account_date: '', 
+      first_name: '', 
+      last_name: '', 
+      location: '', 
+      email: '', 
+      phone_number: ''
+    }
+  );
 
   const navigate = useNavigate();
 
+  function handleChange(e) {
+
+    const { name, value } = e.target;
+    
+    setFormData(oldData => {
+      return (
+        {
+          ...oldData,
+          [name]: value
+        }
+      );
+    });
+
+    console.log(formData);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const users = {username, password, account_date, first_name, last_name, location, email, phone_number};
+    // const users = {username, password, account_date, first_name, last_name, location, email, phone_number};
 
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify(users),
+      body: JSON.stringify(formData),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -33,13 +51,16 @@ export default function Signup() {
     console.log(data);
     console.log('res data:', data);
     if (response.ok){
-      setUsername('');
-      setPassword('');
-      setAccount_date('');
-      setFirstname('');
-      setLastname('');
-      setLocation('');
-      setEmail('');
+      setFormData({
+        username: '', 
+        password: '', 
+        account_date: '', 
+        first_name: '', 
+        last_name: '', 
+        location: '', 
+        email: '', 
+        phone_number: ''
+      })
     }
 
     navigate('/');
@@ -56,17 +77,19 @@ export default function Signup() {
             <label htmlFor='username'>Username</label>
             <input 
               type="text"
-              onChange={(e) => setUsername(e.target.value) } 
-              value={username} 
+              onChange={handleChange} 
+              value={formData.username} 
+              name='username'
               //name=""
             /> 
           </div>
           <div className='form-group'>
             <label htmlFor='password'>Password</label>
             <input 
-              onChange={(e) => setPassword(e.target.value) } 
+              onChange={handleChange}
               type="password"
-              value={password} 
+              value={formData.password} 
+              name='password'
             /> 
           </div>
           <div className='form-group'>
@@ -74,16 +97,18 @@ export default function Signup() {
             <input 
               type="text" 
               id="firstnameSignup" 
-              onChange={(e) => setFirstname(e.target.value)}
-              value={first_name}
+              onChange={handleChange}
+              value={formData.first_name}
+              name='first_name'
             />
           </div>
           <div className='form-group'>
             <label htmlFor='lastname'>Last name</label>
             <input
               type="text"  
-              onChange={(e) => setLastname(e.target.value)}
-              value={last_name}
+              onChange={handleChange}
+              value={formData.last_name}
+              name='last_name'
             />
           </div>
           <div className='form-group'>
@@ -91,24 +116,28 @@ export default function Signup() {
           Location</label>
             <input 
               type="text" 
-              onChange={(e) => setLocation(e.target.value)}
-              value={location} 
+              onChange={handleChange}
+              value={formData.location} 
+              name='location'
             />
           </div>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>
             <input 
               type="text"  
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              onChange={handleChange}
+              value={formData.email}
+              name='email'
             />
           </div>
           <div className='form-group'>
             <label htmlFor='phoneNumber'>Phone Number</label>
             <input
               type="text" 
-              onChange={(e) => setPhoneNumber (e.target.value)}
-              value={phone_number} />
+              onChange={handleChange}
+              value={formData.phone_number}
+              name='phone_number'
+              />
           </div>
           <button className='button'>Sign Up</button>
         </form>

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Context } from '../Context.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddSub(props) {
   
+  const navigate = useNavigate('/');
+
   // Destructure state variables from Context API
   const {subscriptions, setSubscriptions} = useContext(Context);
 
@@ -14,6 +17,9 @@ export default function AddSub(props) {
     category: 'other',
     due_date: 'PLACEHOLDER'
   });
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,28 +38,31 @@ export default function AddSub(props) {
       .then(res => {
         res.json();
       })
-
       .then(data => {
-        console.log('Data:',  data);
-      })
 
+        console.log('Data:',  data);
+
+        setFormData(old => {
+          return (
+            { 
+              subscription_name: '',
+              monthly_price: '',
+              // Default values for the following properties
+              category: 'other',
+              due_date: 'PLACEHOLDER' 
+            }
+          );
+        });
+        //update display of the user's subscriptions
+        location.reload();
+
+      })
       .catch((err) => {
         console.log('Error:', err);
-      });
+      }); 
 
     // What is this doing??
     // setSubscriptions([...subscriptions, 'Refresh']); 
-
-    setFormData( old => {
-      return (
-        { 
-          subscription_name: '',
-          monthly_price: '',
-          // Default values for the following properties
-          category: 'other',
-          due_date: 'PLACEHOLDER' 
-        });
-    });
   };
 
   function handleChange(e) {
