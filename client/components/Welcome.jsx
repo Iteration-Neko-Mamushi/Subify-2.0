@@ -28,7 +28,9 @@ export default function Welcome() {
         <div id='welcome-message'>
         </div>
         {/* User profile pic justified to right side of screen -- currently hard-coded */}
-        <img id='profile-pic' src={ profilepic }/>
+        <div id='profile-pic-container'>
+          <img id='profile-pic' src={ profilepic }/>
+        </div>
       </div>
     </div>
   );

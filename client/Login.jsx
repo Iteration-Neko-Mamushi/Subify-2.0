@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from './assets/Subify_Logo.png';
+import { Context } from './Context';
 
 export default function Login() {
   
@@ -12,6 +13,8 @@ export default function Login() {
     username: '',
     password: ''
   });
+
+  const { updateSummaryData } = useContext(Context);
 
   const navigate = useNavigate('/');
 
@@ -51,6 +54,8 @@ export default function Login() {
             username: '',
             password: ''
           });
+
+          updateSummaryData();
 
           navigate('/home');// we redirect to home
         }
