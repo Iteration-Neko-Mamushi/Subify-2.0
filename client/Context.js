@@ -44,11 +44,33 @@ function ContextProvider({children}) {
       });
   };
 
+  const handleDelete = (e) => {
+
+    const id = e.target.id;
+    const body = { subscriptionName: id };
+    console.log('id:', id);
+
+    fetch('/api/users', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'Application/JSON'
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => {
+        console.log(res);
+        location.reload();
+      })
+      .catch((err) => {
+        console.log('Error', err);
+      });
+  };
+
   return (
     // Pass display and summaryData states to all children of the Context Provider
     // the value attribute here is what allows us to pass down state via props to any child components that are wrapped
     // around the App component by tge ContextProvider in index.js
-    <Context.Provider value={{subscriptions, setSubscriptions}} >
+    <Context.Provider value={{subscriptions, setSubscriptions, handleDelete, updateSummaryData}} >
       {children}
     </Context.Provider>
   );
