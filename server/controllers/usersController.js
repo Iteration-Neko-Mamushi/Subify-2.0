@@ -86,9 +86,10 @@ usersController.updateUserSub = (req, res, next) => {
 // Delete a subscription from the signed in users account database (not used by frontend at this time)
 usersController.deleteUserSub = (req, res, next) => {
   const username = req.cookies.token;
-  const {subscriptionName} = req.body;
+  const subscriptionName = req.body.subscriptionName;
 
   const queryString = `DELETE FROM ${username} WHERE subscription_name = '${subscriptionName}';`;
+  console.log(queryString);
 
   db.query(queryString)
     .then(result => {
