@@ -146,11 +146,6 @@ body{
 
 }
 
-.content:hover {
-  transform: rotateZ(0.5deg);
-  transition-duration: 1s;
-}
-
 .deleteIcon {
   position: absolute;
   top: 5px;
@@ -279,6 +274,10 @@ p > strong {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.form-group > label {
+  color: #00061a
 }
 
 #home-logo {
