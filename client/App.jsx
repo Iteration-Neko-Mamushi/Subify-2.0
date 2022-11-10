@@ -5,7 +5,7 @@ import Signup from './Signup.jsx';
 import Home from './Home.jsx';
 import Styles from './view/style.scss';
 
-// Moved ContextProvider and BrowserRouter to index.js
+// Moved BrowserRouter to index.js 
 class App extends Component {
   render() {
     return (
