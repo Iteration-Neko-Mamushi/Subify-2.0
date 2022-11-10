@@ -7,12 +7,11 @@ const Context = React.createContext();
 // Declare the ContextProvider and define state to manage and pass down through the Provider
 function ContextProvider({children}) {
 
-  const [ subscriptions, setSubscriptions ] = useState([{
+  const [ subscriptions, setSubscriptions ] = useState([{ // refactored state to be a single object representing state
     'subscription_name': '',
     'category': '',
     'monthly_price': ''
-  }
-  ]);
+  }]);
 
   // Make GET req and set/update State
   // useEffect hook allows for control over the frequency of DB request
@@ -29,31 +28,30 @@ function ContextProvider({children}) {
   const updateSummaryData = () => {
 
     // Initiate GET request for current user's subscriptions
-    fetch('/api/users') 
-      .then((response) => response.json())
-      .then((data) => {
+    fetch('/api/users') // GET request is the default so need to include the method
+      .then((response) => response.json())// json parse the returned promise
+      .then((data) => {// take the data and do the following...
+
         // Console logs to reflect success and show the data that was fetched
         console.log('\u001b[1;32mFetched new SummaryData from DB: ');
         console.group();
         console.log(data);
         console.groupEnd();
 
-        // Iterate through the returned data and, for each subscription, update the totalMonthlyPrice of subscriptions as well as the subscriptionCount
-        // Update display state with this data
+        // Update state with the fetched data
         setSubscriptions(data);
-
-        // Update summaryData state with the newly updated summaryData
         console.log(subscriptions);
       });
   };
 
   return (
     // Pass display and summaryData states to all children of the Context Provider
+    // the value attribute here is what allows us to pass down state via props to any child components that are wrapped
+    // around the App component by tge ContextProvider in index.js
     <Context.Provider value={{subscriptions, setSubscriptions}} >
       {children}
     </Context.Provider>
   );
-  
 }
 
-export {ContextProvider, Context};
+export {ContextProvider, Context};// export as named exports bc we need both
