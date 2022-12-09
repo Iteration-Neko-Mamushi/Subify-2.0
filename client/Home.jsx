@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 import AddSub from './components/AddSub.jsx';
 import Welcome from './components/Welcome.jsx';
-import Summary from './components/Summary.jsx';
 import SummaryCard from './components/SummaryCard.jsx';
-import CardContainer from './components/CardContainer.jsx';
-import SubCard from './components/SubCard.jsx';
+import Subscription from './components/Subscription.jsx';
 
-export default function Home() {
-  const [display, setDisplay] = useState([]);
-  const [summaryData, setSummaryData] = useState({
-    subscriptionCount: 0,
-    totalMonthlyPrice: 0
-  })
+export default function Home() { // we are no longer cluttering this component with empty 'placeholder'... 
+  // ...state variables and passing them down as props only to be defined separately in those respective components.
+  // We are now storing all necessary state inside of our Context API and passing it down on a per needed basis
+  // without having to prop drill through components that don't need them. This is possible because we 
+  // wrapped the App component in our index.js with our ContextProvider 
 
   return (
     <div id='mainContainer'>
-        <Welcome />
-        <div id='midContainer'>
-        <AddSub display={display} setDisplay={setDisplay} />
-
+      <Welcome />
+      <div id='midContainer'>
+        <AddSub />
         <div className="all-cards">
-          <SummaryCard summaryData={summaryData}/>
-          {/* <Summary display={display} setDisplay={setDisplay} /> */}
-          
-          {/* <CardContainer /> Why was this needed? unsure about purpose*/}
-        <SubCard display={display} setDisplay={setDisplay} summaryData={summaryData} setSummaryData={setSummaryData}/>
+          <SummaryCard />
+          <Subscription />
         </div>
-        </div>
+      </div>
     </div>
   );
 }
